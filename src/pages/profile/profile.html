@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Profile
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header color="primary">
+      What is your diet?
+    </ion-card-header>
+
+    <ion-card-content>In case you have any specific diet, will recommend product made for you.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list>
+    <ion-item>
+      <ion-avatar item-start><img src="assets/imgs/vegetarian.png"/></ion-avatar>
+      <ion-label>Vegeratarian</ion-label>
+      <ion-toggle [(ngModel)]="profile.vegetarian"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar item-start><img src="assets/imgs/vegan.png"/></ion-avatar>
+      <ion-label>Vegan</ion-label>
+      <ion-toggle [(ngModel)]="profile.vegan"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar item-start><img src="assets/imgs/glutenfree.png"/></ion-avatar>
+      <ion-label>Gluten free</ion-label>
+      <ion-toggle [(ngModel)]="profile.glutenfree"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar item-start><img src="assets/imgs/lactosefree.png"/></ion-avatar>
+      <ion-label>Lactose free</ion-label>
+      <ion-toggle [(ngModel)]="profile.lactosefree"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
