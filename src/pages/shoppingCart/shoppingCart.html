@@ -1,11 +1,22 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      Shopping Cart
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="clear()">
+        <ion-icon name="trash" clear="true" color="danger"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+	<ion-list>
+		<ion-item *ngFor="let item of shoppingCart">
+			<ion-thumbnail item-start><img src="{{item.img}}"/></ion-thumbnail>
+			<h2>{{ item.name }}</h2>
+			<p>Quantity: {{ item.quantity }} - Price: {{item.price}} &euro; - Total: {{ item.quantity * item.price}} &euro;
+		</ion-item>
+	</ion-list>
 </ion-content>

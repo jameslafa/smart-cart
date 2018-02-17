@@ -1,14 +1,24 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Scan Your product</ion-title>
-  </ion-navbar>
+	<ion-navbar>
+		<ion-title>Product scanner</ion-title>
+	</ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <button ion-button (click)="scanBarcode()">Scan Barcode</button>
-  <div *ngIf="results">
-    <p>{{results.text}}</p>
-    <p>{{results.format}}</p>
-    <p>{{results.cancelled}}</p>
-  </div>
+	<ion-card *ngIf="scannedItem">
+		<ion-card-header>{{scannedItem.name}}</ion-card-header>
+		<img src="{{scannedItem.img}}" style="max-height: 250px; width: auto; margin:0 auto;" />
+		<ion-card-content>
+			<ion-row>
+				<ion-col align-self-start>Category : {{scannedItem.category}}</ion-col>
+				<ion-col align-self-end text-end>Price : {{scannedItem.price}} &euro;</ion-col>
+			</ion-row>
+  		</ion-card-content>
+	</ion-card>
+
+	<ion-row *ngIf="shouldOfferManualScan()">
+		<ion-col text-center>
+			<button ion-button (click)="scanBarcode()">Scan another product</button>
+		</ion-col>
+	</ion-row>
 </ion-content>

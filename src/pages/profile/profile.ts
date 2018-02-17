@@ -7,19 +7,36 @@ import { UserService } from '../../services/user-service';
   templateUrl: 'profile.html'
 })
 export class ProfilePage {
-  profile = {
-    vegetarian: false,
-    vegan: false,
-    glutenfree: false,
-    lactosefree: false
-  }
+  profile = {};
 
   constructor(public navCtrl: NavController, private userService: UserService) {
 
   }
 
+  // Get user profile
+  ionViewWillEnter(){
+    console.log('ProfilePage.enter, load profile.')
+    this.userService.get().then((profile) => {
+      if(profile){
+        this.profile = profile;
+        console.log('Profile: ', JSON.stringify(this.profile));
+      }
+      else{
+        this.profile = {
+          vegetarian: false,
+          vegan: false,
+          glutenfree: false,
+          lactosefree: false
+        }
+        console.log('Default Profile: ', JSON.stringify(this.profile));
+      }
+    });
+
+  }
+
+  // Save the profile on exit
   ionViewWillLeave(){
-    // Save the profile
-    this.userService.saveProfile(this.profile);
+    console.log('ProfilePage.leave, save profile: ', JSON.stringify(this.profile));
+    this.userService.save(this.profile);
   }
 }
