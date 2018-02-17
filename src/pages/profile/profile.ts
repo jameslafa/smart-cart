@@ -14,29 +14,26 @@ export class ProfilePage {
   }
 
   // Get user profile
-  ionViewWillEnter(){
-    console.log('ProfilePage.enter, load profile.')
+  ionViewWillEnter() {
     this.userService.get().then((profile) => {
-      if(profile){
+      if (profile) {
         this.profile = profile;
         console.log('Profile: ', JSON.stringify(this.profile));
       }
-      else{
-        this.profile = {
-          vegetarian: false,
-          vegan: false,
-          glutenfree: false,
-          lactosefree: false
-        }
-        console.log('Default Profile: ', JSON.stringify(this.profile));
-      }
     });
-
   }
 
   // Save the profile on exit
-  ionViewWillLeave(){
-    console.log('ProfilePage.leave, save profile: ', JSON.stringify(this.profile));
-    this.userService.save(this.profile);
+  ionViewWillLeave() {
+    this.userService.save(this.profile).then((data) => {
+      console.log('ProfilePage.leave, save profile: ', JSON.stringify(this.profile));
+    });
+  }
+
+  // Reset user profile to default
+  reset(){
+    this.userService.reset().then((profile) => {
+      this.profile = profile;
+    });
   }
 }

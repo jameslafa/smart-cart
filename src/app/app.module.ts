@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { UserService } from '../services/user-service';
 import { ShoppingCartService } from '../services/shopping-cart-service';
 import { ItemService } from '../services/item-service';
+import { RecommendationService } from '../services/recommendation-service';
 
 import { ShoppingCartPage } from '../pages/shoppingCart/shoppingCart';
 import { ScanPage } from '../pages/scan/scan';
@@ -49,6 +50,7 @@ import { IonicStorageModule } from '@ionic/storage';
     UserService,
     ShoppingCartService,
     ItemService,
+    RecommendationService,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
