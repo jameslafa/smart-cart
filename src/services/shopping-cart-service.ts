@@ -23,19 +23,6 @@ export class ShoppingCartService {
     });
   }
 
-  async getItemQuantity(itemCode) {
-    return await this.storage.get('shoppingCart').then((cart) => {
-      if (cart == null) {
-        return 0;
-      }
-      if (cart[itemCode]) {
-        return cart[itemCode];
-      } else {
-        return 0
-      }
-    });
-  }
-
   get() {
     return this.storage.get('shoppingCart');
   }

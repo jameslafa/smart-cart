@@ -55,11 +55,12 @@ export class ScanPage {
         this.cancelled = true;
       }
       else {
+        console.log("Scanned new code: ", barcodeData.text)
         // Item has been scanned
         const item = this.itemService.getItem(barcodeData.text);
         if (item) {
           this.scannedItem = item;
-          console.log("Scanned new item:", JSON.stringify(this.scannedItem));
+          console.log("New item found: ", JSON.stringify(this.scannedItem));
 
           this.userService.get().then((profile) => {
             // Check if the item matched the user diet
@@ -111,7 +112,7 @@ export class ScanPage {
     this.recommendationService.requestRecommendation();
     let toast = this.toastCtrl.create({
       message: 'Item added successfully',
-      duration: 2000,
+      duration: 3000,
       position: 'bottom',
       dismissOnPageChange: true
     });

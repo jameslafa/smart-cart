@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Missing a product?
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-card>
+		<ion-card-header color="primary">The product you need is missing?</ion-card-header>
+		<ion-card-content>Request it and we'll bring it shortly to you.</ion-card-content>
+	</ion-card>
+
+	<ion-list>
+		<ion-item *ngFor="let item of items">
+			<ion-thumbnail item-start><img src="{{item.img}}"/></ion-thumbnail>{{ item.name }}<button ion-button item-end (click)="request(item)">Request</button>
+		</ion-item>
+	</ion-list>
+</ion-content>

@@ -12,6 +12,7 @@ import { ShoppingCartPage } from '../pages/shoppingCart/shoppingCart';
 import { ScanPage } from '../pages/scan/scan';
 import { StoreMapPage } from '../pages/storeMap/storeMap';
 import { ProfilePage } from '../pages/profile/profile';
+import { MissingItemPage } from '../pages/missing-item/missing-item';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
@@ -27,6 +28,7 @@ import { IonicStorageModule } from '@ionic/storage';
     ScanPage,
     StoreMapPage,
     ProfilePage,
+    MissingItemPage,
     TabsPage
   ],
   imports: [
@@ -41,6 +43,7 @@ import { IonicStorageModule } from '@ionic/storage';
     ScanPage,
     StoreMapPage,
     ProfilePage,
+    MissingItemPage,
     TabsPage
   ],
   providers: [
