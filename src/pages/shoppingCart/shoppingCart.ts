@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
+
+import { RecommendationPage } from '../recommendation/recommendation';
+
 import { ShoppingCartService } from '../../services/shopping-cart-service';
 import { ItemService } from '../../services/item-service';
+import { RecommendationService } from '../../services/recommendation-service';
 
 @Component({
   selector: 'page-shopping-cart',
@@ -10,12 +14,14 @@ import { ItemService } from '../../services/item-service';
 export class ShoppingCartPage {
 
   shoppingCart = [];
+  recommendations = [];
 
   constructor(
     public navCtrl: NavController,
     private alertCtrl: AlertController,
     private shoppingCartService: ShoppingCartService,
-    private itemService: ItemService) { }
+    private itemService: ItemService,
+    private recommendationService: RecommendationService) { }
 
 
   // Initialize the page.
@@ -23,6 +29,7 @@ export class ShoppingCartPage {
   init() {
     console.log('ShoppingCartPage.init, load shopping cart.')
     this.shoppingCart = [];
+    this.recommendations = [];
     this.shoppingCartService.get().then((value) => {
       if (value) {
         // Transform dictionary in a list of
@@ -40,6 +47,9 @@ export class ShoppingCartPage {
           }
         }
         console.log('ShoppingCart: ', JSON.stringify(this.shoppingCart));
+        if(this.shoppingCart.length > 0){
+          this.recommendations = this.recommendationService.allRecipes();
+        }
       }
       else {
         console.log('Shopping cart is empty');
@@ -77,5 +87,9 @@ export class ShoppingCartPage {
       ]
     });
     alert.present();
+  }
+
+  showRecommendation(recommendation){
+    this.navCtrl.push(RecommendationPage, {recommendation: recommendation});
   }
 }

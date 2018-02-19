@@ -99,6 +99,9 @@ export class ScanPage {
             }
           });
         }
+        else{
+          console.log("The scanned item does not exist: ", barcodeData.text, JSON.stringify(Object.keys(this.itemService.allItems())))
+        }
       }
     }, (err) => {
       this.cancelled = true;

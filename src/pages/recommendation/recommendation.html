@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      {{recommendation.name}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-card>
+		<ion-card-header>{{recommendation.name}}</ion-card-header>
+		<img src={{recommendation.img}} />
+		<ion-list>
+			<ion-item *ngFor="let ingredient of ingredients">
+				<ion-icon name="checkmark-circle" color="secondary" item-start *ngIf="ingredient.present"></ion-icon>
+				<ion-icon name="checkmark-circle-outline" color="danger" item-start *ngIf="!ingredient.present"></ion-icon>
+				{{ingredient.name}}
+			</ion-item>
+		</ion-list>
+	</ion-card>
+</ion-content>

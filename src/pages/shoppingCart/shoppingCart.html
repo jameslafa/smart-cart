@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Shopping Cart
+      Recommendations
     </ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="clear()">
@@ -12,7 +12,16 @@
 </ion-header>
 
 <ion-content>
+  <ion-list *ngIf="recommendations.length > 0">
+    <ion-list-header>Our recommendations</ion-list-header>
+    <ion-item *ngFor="let recommendation of recommendations">
+      <ion-thumbnail item-start><img src="{{recommendation.img}}"/></ion-thumbnail>{{recommendation.name}}
+      <button ion-button item-end (click)="showRecommendation(recommendation)">Show</button>
+    </ion-item>
+  </ion-list>
+
 	<ion-list>
+    <ion-list-header>You already bought</ion-list-header>
 		<ion-item *ngFor="let item of shoppingCart">
 			<ion-thumbnail item-start><img src="{{item.img}}"/></ion-thumbnail>
 			<h2>{{ item.name }}</h2>
