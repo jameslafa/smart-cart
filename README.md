@@ -24,4 +24,4 @@ Bruno, Leo, VJ, Moises and me.
 
 ## Demo
 
-[![Watch the video](img/youtube_thumb.png)](https://www.youtube.com/watch?v=oIV0uYGXLEQ)
+[![Watch the video](https://raw.githubusercontent.com/jameslafa/smart-cart/master/imgs/youtube_thumb.png)](https://www.youtube.com/watch?v=oIV0uYGXLEQ)
